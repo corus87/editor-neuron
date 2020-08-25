@@ -1,7 +1,7 @@
 # Editor
 Edit your Kalliope config in the browser
 
-
+![Alt text](/extras/screenshot.png?raw=true)
 ## Installation
 ```bash
 kalliope install --git-url https://github.com/corus87/editor-neuron
