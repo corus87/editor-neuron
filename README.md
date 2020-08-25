@@ -1,5 +1,5 @@
 # Editor
-Edit you Kalliope config in the browser
+Edit your Kalliope config in the browser
 
 
 ## Installation
