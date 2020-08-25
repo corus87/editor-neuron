@@ -17,7 +17,6 @@ It comes with a lot of features like syntax highlighting, themes, highlight matc
 |----------------|----------|---------|------------------|------------------------------------------|
 | listen_ip      | No       | String  | 0.0.0.0          | The IP the editor listen on              |
 | port           | No       | Int     | 8000             |                                          |
-| basepath       | No       | String  | your_starter_kit | Default path to show in the file browser |
 | ignore_pattern | No       | List    | None             | Files to ignore                          |
 | hide_hidden    | No       | Boolean | False            | Hide hidden files in file browser        |
 | dir_first      | No       | Boolean | False            | Show directories first in file browser   |
