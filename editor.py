@@ -33,7 +33,6 @@ class Editor(NeuronModule):
         # the args from the neuron configuration
         listen_ip = kwargs.get('listen_ip', '0.0.0.0')
         port = kwargs.get('port', 8000)
-        basepath = kwargs.get('basepath', None)
         ignore_pattern = kwargs.get('ignore_pattern', None)
         dir_first = kwargs.get('dir_first', False)
         hide_hidden = kwargs.get('hide_hidden', False)
@@ -52,7 +51,7 @@ class Editor(NeuronModule):
             PAGE_TITLE = page_title
             
             if self.stop_http_server():
-                server = EditorThread(listen_ip, int(port), basepath)
+                server = EditorThread(listen_ip, int(port))
                 server.daemon = True
                 server.start()
                 Cortex.save('EditorServerThread', server)
@@ -67,16 +66,13 @@ class Editor(NeuronModule):
         return True
 
 class EditorThread(threading.Thread):
-    def __init__(self, listen_ip, port, basepath):
+    def __init__(self, listen_ip, port):
         super(EditorThread, self).__init__()
         self.is_down = False
         server_address = (listen_ip, port)
         self.httpd = SimpleServer(server_address, RequestHandler)
         Utils.print_info(('[ Editor ] Listening on: http://%s:%s') % (self.httpd.server_address[0], self.httpd.server_address[1]))
-
-        if basepath:
-            os.chdir(basepath)
-
+        
     def run(self):
         self.httpd.serve_forever()
 
